@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import AuthContext from '../../contexts/AuthContext'
-import Layout from '../Layout'
-import Spinner from '../Spinner'
+import Layout from '../../components/Layout'
+import Spinner from '../../components/Spinner'
 
 const LoginPage = () => {
   const history = useHistory()
@@ -15,6 +15,9 @@ const LoginPage = () => {
 
   const [showSpinner, setShowSpinner] = useState(false)
 
+  useEffect(() => {
+    window.localStorage.removeItem('ImproveIn-token')
+  }, [])
   const handleLogin = (e) => {
     e.preventDefault()
     const username = usernameRef.current.value
@@ -23,7 +26,7 @@ const LoginPage = () => {
     login({ username, password })
       .then(() => {
         setShowSpinner(false)
-        history.replace('/dashboard')
+        history.replace('/genres')
       })
       .catch((e) => {
         setShowSpinner(false)
@@ -37,9 +40,6 @@ const LoginPage = () => {
     }
     return (
       <>
-        <div>
-          <img src="logo.svg" alt="logo" className="w-3/12 lg:w-2/12 mx-auto p-4" />
-        </div>
         <div className="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-8/12 px-6 py-10 sm:px-10 sm:py-6 bg-white rounded-lg shadow-md mx-auto">
           <h3 className="text-black text-center text-xl font-semibold my-8"> Sign In </h3>
           <form onSubmit={handleLogin}>

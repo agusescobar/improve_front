@@ -14,6 +14,8 @@ If you got this far, with the following command you can run the project on your 
 
 `npm run start`
 
+For test you can use this credentials:
 
+`username: admin`
 
-
+`password: admin`

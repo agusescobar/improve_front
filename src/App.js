@@ -5,10 +5,13 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
-import Authenticator from './components/Authenticator'
 
-import Dashboard from './components/Dashboard'
-import LoginPage from './components/LoginPage'
+
+import Authenticator from './components/Authenticator'
+import AlbumsPage from './pages/Albums'
+import GenresPage from './pages/Genres'
+import BandsPage from './pages/Bands'
+import LoginPage from './pages/Login'
 
 function App () {
   return (
@@ -17,9 +20,11 @@ function App () {
         <Route exact path="/">
           <Redirect to="/login" />
         </Route>
-        <Authenticator>
-          <Route path="/dashboard" component={Dashboard} />
+        <Authenticator>        
           <Route path="/login" component={LoginPage} />
+          <Route path="/genres" component={GenresPage} />
+          <Route path='/band/:id' component={BandsPage} />
+          <Route path='/albums/:id' component={AlbumsPage} />
         </Authenticator>
       </Switch>
     </Router>

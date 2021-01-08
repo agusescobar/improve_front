@@ -1,14 +1,13 @@
 /* eslint-disable no-undef */
 const baseURL = process.env.REACT_APP_API_URL
 
-function RequestService ({ param, method }) {
-
+function RequestService ({ parameter, method }) {
 
   var requestOptions = {
     method,
   }
 
-  return fetch(`${baseURL}${param}`, requestOptions)
+  return fetch(`${baseURL}${parameter}`, requestOptions)
   
 }
 

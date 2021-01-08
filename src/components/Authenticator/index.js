@@ -40,7 +40,6 @@ const Authenticator = ({ children }) => {
         .validateToken()
         .then(() => setCanShow(true))
         .catch(() => {
-          setCanShow(false)
           window.localStorage.removeItem(localStorageTokenKey)
           history.push('/login')
         })
