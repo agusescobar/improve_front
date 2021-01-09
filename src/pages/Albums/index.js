@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Album from '../../components/Album'
 import Layout from '../../components/Layout'
+import NotFound from '../../components/NotFound'
 
 import Spinner from '../../components/Spinner'
 
@@ -55,11 +56,13 @@ const AlbumsPage = () => {
     <Layout>
       <h1 className="font-bold text-center text-3xl capitalize text-gray-50 my-10">Albums of {bandName} </h1>
       <div className="flex flex-col items-center">
-        {albums.map(album =>{
-          return(
-            <Album album={album} key={album.name} />
-          )
-        })}
+        {albums.length > 0 
+          ? 
+          albums.map(album =>{
+            return <Album album={album} key={album.name} />
+          })
+          : <NotFound message='Oops! This band has no albums in our database. Sorry :(' />
+        }
       </div>
     </Layout>
   )

@@ -47,7 +47,7 @@ const BandsPage = () => {
   return ( 
     <Layout>
       <h1 className="font-bold text-center text-3xl capitalize text-gray-50 my-10">{id} Bands</h1>
-      <div className="flex flex-row justify-end items-center">
+      <div className="flex flex-row justify-end items-center px-4">
         <h1 className="text-white uppercase mx-3">Sort by: </h1>
         <select 
           value={filter} 
